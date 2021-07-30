@@ -17,6 +17,25 @@ $this_ring_record = mysqli_fetch_assoc($this_ring_result);
 $all_rings_query = "SELECT RingID, RName FROM rings";
 $all_rings_result = mysqli_query($con, $all_rings_query);
 
+// Query to order rings from A to Z in the table
+$rings_AtoZ = "SELECT * FROM rings ORDER BY RName ASC";
+// Query to order rings from Z to A in the table
+$rings_ZtoA = "SELECT * FROM rings ORDER BY IName DESC";
+// Query to order rings from the lowest to highest price
+$rings_price_low_to_high = "SELECT * FROM rings ORDER BY Price ASC";
+// Query to order the rings from the highest to lowest price
+$rings_price_high_to_low = "SELECT * FROM rings ORDER BY Price DESC";
+// Query to display the rings that are in stock
+$rings_in_stock = "SELECT * FROM rings WHERE Stock > 0";
+// Query to display the rings that are out of stock
+$rings_out_of_stock = "SELECT * FROM rings WHERE Stock = 0";
+// Query to display the rings that are silver
+$rings_silver = "SELECT * FROM rings WHERE Material = 'Silver'";
+// Query to display the rings that are rose gold
+$rings_rose_gold = "SELECT * FROM rings WHERE Material = 'Rose Gold'";
+// Query to display the rings that are gold
+$rings_gold = "SELECT * FROM rings WHERE Material = 'Gold'";
+
 $update_drinks = "SELECT * FROM drinks";
 $update_drinks_record = mysqli_query($con, $update_drinks);
 
@@ -82,28 +101,216 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
     </form>
 </main>
 
-<?php
+        <?php
 
-if(isset($_POST['search'])){
-    $search = $_POST['search'];
+        if(isset($_POST['search'])){
+            $search = $_POST['search'];
 
-    $query1 = "SELECT * FROM rings WHERE RName LIKE '%$search%'";
-    $query = mysqli_query($con, $query1);
-    $count = mysqli_num_rows($query);
+            $query1 = "SELECT * FROM rings WHERE RName LIKE '%$search%'";
+            $query = mysqli_query($con, $query1);
+            $count = mysqli_num_rows($query);
 
-    if($count == 0){
-        echo "There was no search results!";
-    }else{
+            if($count == 0){
+                echo "There were no search results!";
+            }else{
 
-        while ($row = mysqli_fetch_array($query)) {
+                while ($row = mysqli_fetch_array($query)) {
 
-            echo $row ['RName'];
-            echo"<br>";
+                    echo $row ['RName'];
+                    echo"<br>";
+                }
+            }
         }
-    }
-}
-?>
+        ?>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2> Items Available</h2>
+
+        <p>Display all the items available by sorting them out using the buttons
+            <br><br>Sort by:
+        </p>
+
+        <form action="rings.php" method="post">
+            <input type='submit' name='rings_AtoZ' value="From A-Z">
+            <input type='submit' name='rings_ZtoA' value="From Z-A">
+            <input type='submit' name='rings_price_low_to_high' value="Price Low to High">
+            <input type='submit' name='rings_price_high_to_low' value="Price High to Low">
+            <input type='submit' name='in_stock' value="In Stock">
+            <input type='submit' name='out_stock' value="Out of Stock">
+            <input type='submit' name='silver' value="Silver Rings">
+            <input type='submit' name='rose_gold' value="Rose Gold Rings">
+            <input type='submit' name='gold' value="Gold Rings">
+        </form>
 
 
+        <table style="width:75%">
+            <tr>
+                <th>Ring Name</th>
+                <th>Cost</th>
+                <th>Stock</th>
+                <th>Material</th>
+            </tr>
+
+            <?php
+            if (isset($_POST['rings_AtoZ'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings ORDER BY RName ASC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+            <?php
+            if (isset($_POST['rings_ZtoA'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings ORDER BY RName DESC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['rings_price_low_to_high'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings ORDER BY Price ASC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
 
 
+            <?php
+            if (isset($_POST['rings_price_high_to_low'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings ORDER BY Price DESC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['in_stock'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings WHERE Stock > 0");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['out_stock'])) {
+                $result = mysqli_query($con, "SELECT * FROM rings WHERE stock = 0");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['silver'])) {
+            $result = mysqli_query($con, "SELECT * FROM rings WHERE Material = 'Silver'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['rose_gold'])) {
+            $result = mysqli_query($con, "SELECT * FROM rings WHERE Material = 'Rose Gold'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+
+            <?php
+            if (isset($_POST['gold'])) {
+            $result = mysqli_query($con, "SELECT * FROM rings WHERE Material = 'Gold'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['RingID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['RName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
+                }
+            }
+            ?>
+        </table>
+        </main>
+        </div>
+    </body>
+</html>
