@@ -36,8 +36,8 @@ $rings_rose_gold = "SELECT * FROM rings WHERE Material = 'Rose Gold'";
 // Query to display the rings that are gold
 $rings_gold = "SELECT * FROM rings WHERE Material = 'Gold'";
 
-$update_drinks = "SELECT * FROM drinks";
-$update_drinks_record = mysqli_query($con, $update_drinks);
+$update_rings = "SELECT * FROM rings";
+$update_rings_record = mysqli_query($con, $update_rings);
 
 ?>
 <!DOCTYPE html>
@@ -73,33 +73,36 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
     echo "<p> Material: " . $this_ring_record['Material'] . "<br>";
     ?>
 </main>
+<hr>
+    <main>
+        <h2>Select Another Ring</h2>
+        <form name='rings_form' id='rings_form' method='get' action='rings.php'>
+            <select id='ring' name='ring'>
+                <!--options-->
+                <?php
+                while($all_rings_record = mysqli_fetch_assoc($all_rings_result)){
+                    echo "<option value = '".$all_rings_record['RingID']."'>";
+                    echo $all_rings_record['RName'];
+                    echo"</option>";
+                }
+                ?>
+            </select>
+            <input type='submit' name='rings_button' value='Show me the ring information'>
+        </form>
 
-<main>
-    <h2>Select Another Ring</h2>
-    <form name='rings_form' id='rings_form' method='get' action='rings.php'>
-        <select id='ring' name='ring'>
-            <!--options-->
-            <?php
-            while($all_rings_record = mysqli_fetch_assoc($all_rings_result)){
-                echo "<option value = '".$all_rings_record['RingID']."'>";
-                echo $all_rings_record['RName'];
-                echo"</option>";
-            }
-            ?>
-        </select>
-        <input type='submit' name='rings_button' value='Show me the ring information'>
-    </form>
+    </body>
 
-</body>
 
-<main>
-    <h2>Search a Ring</h2>
+    <main>
+        <h2>Search a Ring</h2>
 
-    <form action = "" method="post">
-        <input type="text" name='search'>
-        <input type="submit" name="submit" value="Search">
-    </form>
-</main>
+        <form action = "" method="post">
+            <input type="text" name='search'>
+            <input type="submit" name="submit" value="Search">
+        </form>
+    </main>
+    <br>
+
 
         <?php
 
@@ -152,7 +155,7 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
         <table style="width:75%">
             <tr>
                 <th>Ring Name</th>
-                <th>Cost</th>
+                <th>Price</th>
                 <th>Stock</th>
                 <th>Material</th>
             </tr>
@@ -310,7 +313,25 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
             }
             ?>
         </table>
+
+        <hr>
+
+        <main>
+            <h2> Add a Ring</h2>
+
+            <form action="j_insert.php" method="post">
+
+                Ring ID: <input type ="text" name="RingID"><br>
+                Ring Name : <input type ="text" name="RName"><br>
+                Price: <input type = "text" name ="Price"><br>
+                Stock: <input type = "text" name ="Stock"><br>
+                Material: <input type = "text" name ="Material"><br>
+                Description: <input type = "text" name ="Description"><br>
+                <input type ="submit" value ="Insert">
+
+            </form>
         </main>
-        </div>
-    </body>
+
+</body>
+
 </html>
