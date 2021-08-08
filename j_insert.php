@@ -15,7 +15,7 @@ $Stock = $_POST['Stock'];
 $Material = $_POST['Material'];
 $Description = $_POST['Description'];
 
-$insert_ring = "INSERT INTO rings (RingID,RName,Price,Stock,Material,Description) VALUES ('$RingID', '$RName', '$Price', '$Stock', '$Material', '$Description')";
+$insert_ring = "INSERT INTO rings (RingID,RName,Price,Stock,Material,Description) VALUES ('$RingID', '$RName', '$Price', '$Stock', '$Material','$Description')";
 
 if(!mysqli_query($con, $insert_ring))
 {
