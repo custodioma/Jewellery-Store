@@ -332,6 +332,33 @@ $update_rings_record = mysqli_query($con, $update_rings);
             </form>
         </main>
 
+        <hr>
+        <main>
+            <h2>Update Rings</h2>
+            <table>
+                <tr>
+                    <th>Ring</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Material</th>
+                </tr>
+                <?php
+                while($row = mysqli_fetch_array($update_rings_record))
+                {
+                    echo "<tr><form action = j_update.php method = post>";
+                    echo "<td><input type=text name=RName value='" .$row['RName']. "'></td>";
+                    echo "<td><input type=text name=Price value='" .$row['Price']. "'></td>";
+                    echo "<td><input type=text name=Stock value='" .$row['Stock']. "'></td>";
+                    echo "<td><input type=text name=Material value='" .$row['Material']. "'></td>";
+                    echo "<input type=hidden name=RingID value='" .$row['RingID']. "'>";
+                    echo "<td><input type =submit></td>";
+                    echo "</form></tr>";
+                }
+                ?>
+            </table>
+
+        </main>
+
 </body>
 
 </html>
