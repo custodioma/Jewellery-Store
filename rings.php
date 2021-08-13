@@ -352,6 +352,7 @@ $update_rings_record = mysqli_query($con, $update_rings);
                     echo "<td><input type=text name=Material value='" .$row['Material']. "'></td>";
                     echo "<input type=hidden name=RingID value='" .$row['RingID']. "'>";
                     echo "<td><input type =submit></td>";
+                    echo "<td><a href=j_delete.php?RingID="  .$row['RingID'].  ">Delete</a></td>";
                     echo "</form></tr>";
                 }
                 ?>
