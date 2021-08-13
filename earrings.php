@@ -36,9 +36,8 @@ $earrings_rose_gold = "SELECT * FROM earrings WHERE Material = 'Rose Gold'";
 // Query to display the rings that are gold
 $earrings_gold = "SELECT * FROM earrings WHERE Material = 'Gold'";
 
-$update_drinks = "SELECT * FROM drinks";
-$update_drinks_record = mysqli_query($con, $update_drinks);
-
+$update_earrings = "SELECT * FROM earrings";
+$update_earrings_record = mysqli_query($con, $update_earrings);
 ?>
 <!DOCTYPE html>
 
@@ -158,163 +157,163 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
     </form>
 
 
-    <table style="width:75%">
-        <tr>
-            <th>Item Name</th>
-            <th>Cost</th>
-            <th>Stock</th>
-            <th>Material</th>
-        </tr>
+        <table style="width:75%">
+            <tr>
+                <th>Item Name</th>
+                <th>Cost</th>
+                <th>Stock</th>
+                <th>Material</th>
+            </tr>
 
-        <?php
-        if (isset($_POST['earrings_AtoZ'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY EName ASC");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            <?php
+            if (isset($_POST['earrings_AtoZ'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY EName ASC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
-        <?php
-        if (isset($_POST['earrings_ZtoA'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY EName DESC");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            ?>
+            <?php
+            if (isset($_POST['earrings_ZtoA'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY EName DESC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
 
-        <?php
-        if (isset($_POST['earrings_price_low_to_high'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY Price ASC");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            <?php
+            if (isset($_POST['earrings_price_low_to_high'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY Price ASC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
 
 
-        <?php
-        if (isset($_POST['earrings_price_high_to_low'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY Price DESC");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            <?php
+            if (isset($_POST['earrings_price_high_to_low'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings ORDER BY Price DESC");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
 
-        <?php
-        if (isset($_POST['in_stock'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings WHERE Stock > 0");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            <?php
+            if (isset($_POST['in_stock'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings WHERE Stock > 0");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
 
-        <?php
-        if (isset($_POST['out_stock'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings WHERE Stock = 0");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            <?php
+            if (isset($_POST['out_stock'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings WHERE Stock = 0");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
-        <?php
-        if (isset($_POST['earrings_silver'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Silver'");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            ?>
+            <?php
+            if (isset($_POST['earrings_silver'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Silver'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
-        <?php
-        if (isset($_POST['earrings_rose_gold'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Rose Gold'");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            ?>
+            <?php
+            if (isset($_POST['earrings_rose_gold'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Rose Gold'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
-        <?php
-        if (isset($_POST['earrings_gold'])) {
-            $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Gold'");
-            if (mysqli_num_rows($result) != 0) {
-                while ($test = mysqli_fetch_array($result)) {
-                    $id = $test['EarringID'];
-                    echo "<tr>";
-                    echo "<td>" . $test['EName'] . "</td>";
-                    echo "<td>" . $test['Price'] . "</td>";
-                    echo "<td>" . $test['Stock'] . "</td>";
-                    echo "<td>" . $test['Material'] . "</td>";
-                    echo "</tr>";
+            ?>
+            <?php
+            if (isset($_POST['earrings_gold'])) {
+                $result = mysqli_query($con, "SELECT * FROM earrings WHERE Material = 'Gold'");
+                if (mysqli_num_rows($result) != 0) {
+                    while ($test = mysqli_fetch_array($result)) {
+                        $id = $test['EarringID'];
+                        echo "<tr>";
+                        echo "<td>" . $test['EName'] . "</td>";
+                        echo "<td>" . $test['Price'] . "</td>";
+                        echo "<td>" . $test['Stock'] . "</td>";
+                        echo "<td>" . $test['Material'] . "</td>";
+                        echo "</tr>";
+                    }
                 }
             }
-        }
-        ?>
+            ?>
     </table>
 
         <hr>
@@ -333,6 +332,36 @@ $update_drinks_record = mysqli_query($con, $update_drinks);
                 <input type ="submit" value ="Insert">
 
             </form>
+    </main>
+
+    <hr>
+    <main>
+        <h2>Update Earrings</h2>
+        <table>
+            <tr>
+                <th>Earring</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Material</th>
+                <th>Submit</th>
+                <th>Delete</th>
+            </tr>
+            <?php
+            while($row = mysqli_fetch_array($update_earrings_record))
+            {
+                echo "<tr><form action = e_update.php method = post>";
+                echo "<td><input type=text name=EName value='" .$row['EName']. "'></td>";
+                echo "<td><input type=text name=Price value='" .$row['Price']. "'></td>";
+                echo "<td><input type=text name=Stock value='" .$row['Stock']. "'></td>";
+                echo "<td><input type=text name=Material value='" .$row['Material']. "'></td>";
+                echo "<input type=hidden name=EarringID value='" .$row['EarringID']. "'>";
+                echo "<td><input type =submit></td>";
+                echo "<td><a href=e_delete.php?EarringID="  .$row['EarringID'].  ">Delete</a></td>";
+                echo "</form></tr>";
+            }
+            ?>
+        </table>
+
     </main>
     </body>
     </html>
