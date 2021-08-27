@@ -53,14 +53,13 @@ $update_rings_record = mysqli_query($con, $update_rings);
 <body>
 <header>
     <h1>REGINA'S JEWELLERY</h1>
-    <nav>
-        <ul>
+    <div class="topnav">
             <a href='regina.php'> HOME </a>
             <a href='rings.php'> RINGS </a>
             <a href='earrings.php'> EARRINGS </a>
-            <a href='jlogin.php'>LOGIN</a>
-        </ul>
-    </nav>
+            <a href='sales.php'> SALES </a>
+            <a href='jlogin.php'>LOGIN</a
+    </div>
 </header>
 
 <main>
@@ -333,7 +332,6 @@ $update_rings_record = mysqli_query($con, $update_rings);
         </main>
 
         <hr>
-        <main>
             <h2>Update Rings</h2>
             <table>
                 <tr>
@@ -357,8 +355,6 @@ $update_rings_record = mysqli_query($con, $update_rings);
                 }
                 ?>
             </table>
-
-        </main>
 
 </body>
 
