@@ -57,8 +57,8 @@ $update_earrings_record = mysqli_query($con, $update_earrings);
             <a href='regina.php'> HOME </a>
             <a href='rings.php'> RINGS </a>
             <a href='earrings.php'> EARRINGS </a>
+            <a href='sales.php'> SALES </a>
             <a href='jlogin.php'>LOGIN</a>
-            <a href='update_drinks.php'>UPDATE DRINKS</a>
         </ul>
     </nav>
 </header>
