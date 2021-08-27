@@ -1,19 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display&family=Nunito:wght@300&display=swap');
 
 
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+
+section_header {
+    text-align: center;
+}
+
 h1 {
     text-align: center;
     font-size: 6rem;
-    font-family: 'DM Serif Display', cursive;
-    color: #B4404A;
+    font-family: 'Kalam', cursive;
+    color: #C63E4B;
 }
 
 h2 {
     font-size: 3rem;
-    font-family: 'Caveat', cursive;
+    font-family: 'Kalam', cursive;
     color: #D17450;
     text-align: center;
     margin-top: 15px;
@@ -24,14 +30,22 @@ h2 {
     background-color: #F0E6DC;
     overflow: hidden;
     text-align: center;
+    margin-bottom: 40px;
+    margin-top: -30px;
 }
 
 .topnav a {
-    color: #9B765C;
+    color: #85654E;
     text-decoration: none;
-    margin-left: 100px;
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.topnav a:hover {
+    color: #634C3B;
 }
 
 body {
@@ -66,7 +80,7 @@ input {
 table, td {
     text-align: center;
     font-size: 1.2rem;
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Nunito', sans-serif;
     color: #382716;
     border: 1px solid black;
     border-collapse: collapse;
