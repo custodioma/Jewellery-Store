@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display&family=Nunito:wght@300&display=swap');
+
 
 section_header {
     text-align: center;
@@ -40,7 +45,7 @@ h2 {
     margin-left: 50px;
     margin-right: 50px;
     font-family: 'Nunito', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     text-align: center;
 }
 
@@ -69,12 +74,23 @@ form {
 .divider-home {
     background: url(stars2.jpg) no-repeat center center fixed;
     background-size: cover;
-    height: 80vh;
+    height: 60vh;
 
 }
 
+.divider-rings {
+    background: url(ringbanner2.png) no-repeat center center fixed;
+    background-size: cover;
+    height: 60vh;
+
+}
+
+
 input {
     text-align: center;
+    fon-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+
 }
 
 table, td {
@@ -85,5 +101,52 @@ table, td {
     border: 1px solid black;
     border-collapse: collapse;
     margin-top: 50px;
-    margin-left: 330px;
+    margin-left: 150px;
+
 }
+
+table, th {
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Kalam', cursive;
+    color: #382716;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-left: 150px;
+}
+
+.container1 {
+    float: left;
+    margin-left: 270px;
+    margin-top: 20px;
+}
+
+.container2 {
+    float: right;
+    margin-right: 270px;
+    margin-top: 20px;
+
+}
+
+.container3 {
+    margin-top: 20px;
+}
+
+.container4 {
+    margin-left: 190px;
+}
+
+.update_link {
+    color: #85654E;
+    text-decoration: none;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: #F2E3CA;
+}
+
+
+
