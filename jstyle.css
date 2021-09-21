@@ -11,10 +11,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display&family=Nunito:wght@300&display=swap');
 
 
+
+/* Class for the main heading to be in the center */
 section_header {
     text-align: center;
 }
 
+/* Styling for the main heading of my webiste */
 h1 {
     text-align: center;
     font-size: 6rem;
@@ -22,6 +25,7 @@ h1 {
     color: #C63E4B;
 }
 
+/* Styling for the sub-headings */
 h2 {
     font-size: 3rem;
     font-family: 'Kalam', cursive;
@@ -31,6 +35,7 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Class to style my nav bar */
 .topnav {
     background-color: #F0E6DC;
     overflow: hidden;
@@ -39,6 +44,7 @@ h2 {
     margin-top: -30px;
 }
 
+/* Class to style the individual links in my nav bar */
 .topnav a {
     color: #85654E;
     text-decoration: none;
@@ -49,14 +55,17 @@ h2 {
     text-align: center;
 }
 
+/* Changes the colour when I hover over the links in my nav bar */
 .topnav a:hover {
     color: #634C3B;
 }
 
+/* Colour for the background of my website */
 body {
     background-color:#F0E6DC;
 }
 
+/* Styles for text on my website */
 p {
     font-size: 1.2rem;
     font-family: 'Nunito', sans-serif;
@@ -66,26 +75,34 @@ p {
     margin-right: 120px;
 }
 
+/* Styling that puts my forms in the center */
 form {
     text-align: center;
     font-size: 1.2rem;
 }
 
+/* Styles for the first section divider on my home page */
 .divider-home {
     background: url(stars2.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 60vh;
-
 }
 
+/* Styles for the section divider on my home page and rings page */
 .divider-rings {
-    background: url(ringbanner2.png) no-repeat center center fixed;
+    background: url(banner4rings.png) no-repeat center center fixed;
     background-size: cover;
     height: 60vh;
-
 }
 
+/* Styles for the section divider on my earrings page */
+.divider-earrings {
+    background: url(banner4earrings.png) no-repeat center center fixed;
+    background-size: cover;
+    height: 60vh;
+}
 
+/* Styles for all inputs in my forms */
 input {
     text-align: center;
     fon-family: 'Nunito', sans-serif;
@@ -93,6 +110,7 @@ input {
 
 }
 
+/* Styles for the structure and position of the table */
 table, td {
     text-align: center;
     font-size: 1.2rem;
@@ -102,9 +120,9 @@ table, td {
     border-collapse: collapse;
     margin-top: 50px;
     margin-left: 150px;
-
 }
 
+/* Styles for the headings in my table */
 table, th {
     text-align: center;
     font-size: 2rem;
@@ -113,28 +131,63 @@ table, th {
     border: 1px solid black;
     border-collapse: collapse;
     margin-top: 50px;
-    margin-left: 150px;
 }
 
 .container1 {
-    float: left;
-    margin-left: 270px;
+    float: top;
+    margin-left: -480px;
     margin-top: 20px;
+    height: 200px;
 }
 
 .container2 {
-    float: right;
-    margin-right: 270px;
-    margin-top: 20px;
-
+    float: top;
+    margin-right: -400px;
+    margin-top: 200px;
+    margin-top: -250px;
 }
 
+
 .container3 {
-    margin-top: 20px;
+    margin-top: 180px;
 }
 
 .container4 {
-    margin-left: 190px;
+    margin-left: 180px;
+}
+
+.container5 {
+    float: left;
+    margin-left: 220px;
+    margin-top: 20px;
+
+}
+
+.container6 {
+    float: top;
+    margin-right: 80px;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.container7 {
+    float: left;
+    margin-left: 160px;
+}
+
+.container8 {
+    float: right;
+    margin-right: 60px;
+}
+
+.container9 {
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+.container10 {
+    margin-top: 30px;
 }
 
 .update_link {
@@ -148,5 +201,10 @@ table, th {
     background-color: #F2E3CA;
 }
 
-
+.page_title {
+    font-weight: 900;
+}
+.float-right {
+    float: right;
+}
 
